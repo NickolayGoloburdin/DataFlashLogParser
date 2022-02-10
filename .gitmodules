@@ -1,0 +1,3 @@
+[submodule "cppystruct"]
+	path = cppystruct
+	url = https://github.com/karkason/cppystruct

@@ -18,6 +18,7 @@ struct Baro {
   float alt;
   long timestamp;
 };
+std::list<GPS> compare_gps_baro(std::list<GPS> gps, std::list<Baro> baro);
 
 class Parser {
 public:
@@ -48,4 +49,5 @@ private:
   char a[10] = "<BB4s16s";
   std::map<char, Message> headers;
 };
+
 } // namespace DFParser

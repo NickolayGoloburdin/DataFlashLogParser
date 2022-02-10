@@ -1,6 +1,21 @@
-#include "parser.hpp"
+#include "parser.h"
 
 using namespace DFParser;
+
+std::list<GPS> DFParser::compare_gps_baro(std::list<GPS> gps,
+                                          std::list<Baro> baro) {
+  std::list<GPS> compared;
+  std::list<Baro>::iterator it = baro.begin();
+  for (auto i : gps) {
+    while (i.timestamp > it->timestamp) {
+      it++;
+    }
+
+    compared.push_back(GPS{i.lat, i.lon, it->alt, i.timestamp});
+  }
+
+  return compared;
+}
 
 Parser::Parser(std::set<std::string> types) {
   headers[ftm_type] = {"FTM", ftm_len, "<BB4s16s"};

@@ -106,5 +106,4 @@ std::list<Baro> Parser::get_baro() {
     baro.push_back(Baro{float(Alt), long(TimeUS)});
   }
   return baro;
-  ;
 }
